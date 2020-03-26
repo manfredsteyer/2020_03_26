@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "projects": {
+    "twaice-ui": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/twaice-ui",
+      "sourceRoot": "apps/twaice-ui/src",
+      "prefix": "twice-ui",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/twaice-ui",
+            "index": "apps/twaice-ui/src/index.html",
+            "main": "apps/twaice-ui/src/main.ts",
+            "polyfills": "apps/twaice-ui/src/polyfills.ts",
+            "tsConfig": "apps/twaice-ui/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/twaice-ui/src/favicon.ico",
+              "apps/twaice-ui/src/assets"
+            ],
+            "styles": ["apps/twaice-ui/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/twaice-ui/src/environments/environment.ts",
+                  "with": "apps/twaice-ui/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "twaice-ui:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "twaice-ui:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "twaice-ui:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/twaice-ui/tsconfig.app.json",
+              "apps/twaice-ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/twaice-ui/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/twaice-ui/jest.config.js",
+            "tsConfig": "apps/twaice-ui/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/twaice-ui/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "twaice-ui-e2e": {
+      "root": "apps/twaice-ui-e2e",
+      "sourceRoot": "apps/twaice-ui-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/twaice-ui-e2e/cypress.json",
+            "tsConfig": "apps/twaice-ui-e2e/tsconfig.e2e.json",
+            "devServerTarget": "twaice-ui:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "twaice-ui:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/twaice-ui-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/twaice-ui-e2e/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "twaice-ui"
+}

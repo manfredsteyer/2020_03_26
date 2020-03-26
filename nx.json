@@ -1,0 +1,22 @@
+{
+  "npmScope": "twice-ui",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "twaice-ui": {
+      "tags": []
+    },
+    "twaice-ui-e2e": {
+      "tags": [],
+      "implicitDependencies": ["twaice-ui"]
+    }
+  }
+}
