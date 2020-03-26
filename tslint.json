@@ -60,6 +60,14 @@
         "allow": [],
         "depConstraints": [
           {
+            "sourceTag": "app",
+            "onlyDependOnLibsWithTags": ["feature"]
+          },
+          {
+            "sourceTag": "feature",
+            "onlyDependOnLibsWithTags": ["ui"]
+          },
+          {
             "sourceTag": "*",
             "onlyDependOnLibsWithTags": ["*"]
           }

@@ -12,17 +12,17 @@
   },
   "projects": {
     "twaice-ui": {
-      "tags": []
+      "tags": ["app"]
     },
     "twaice-ui-e2e": {
       "tags": [],
       "implicitDependencies": ["twaice-ui"]
     },
     "twaice-feature-live-data": {
-      "tags": []
+      "tags": ["feature"]
     },
     "shared-ui-tile": {
-      "tags": []
+      "tags": ["ui"]
     }
   }
 }
