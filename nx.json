@@ -17,6 +17,12 @@
     "twaice-ui-e2e": {
       "tags": [],
       "implicitDependencies": ["twaice-ui"]
+    },
+    "twaice-feature-live-data": {
+      "tags": []
+    },
+    "shared-ui-tile": {
+      "tags": []
     }
   }
 }

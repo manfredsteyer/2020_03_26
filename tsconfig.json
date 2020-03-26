@@ -15,7 +15,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@twice-ui/twaice/feature-live-data": [
+        "libs/twaice/feature-live-data/src/index.ts"
+      ],
+      "@twice-ui/shared/ui-tile": ["libs/shared/ui-tile/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
